@@ -1,0 +1,43 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven { url 'https://www.jitpack.io' }
+		maven { url 'https://files.minecraftforge.net/maven' }
+	}
+	dependencies {
+		classpath 'com.github.Chocohead:ForgeGradle:moderniser-SNAPSHOT'
+	}
+}
+
+apply plugin: 'net.minecraftforge.gradle.tweaker-client'
+apply plugin: 'java'
+
+group 'io.github.zekerzhayard'
+version '1.0-RC1'
+archivesBaseName = '[1.13.2]ToggleSprintingMod'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+    manifest.attributes 'TweakClass': 'io.github.zekerzhayard.togglesprint.asm.ClassTweaker'
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://www.dimdev.org/maven/' }
+	maven { url 'https://www.jitpack.io' }
+	maven { url 'http://repo.strezz.org/artifactory/list/Strezz-Central' }
+}
+
+dependencies {
+	implementation 'com.github.Chocohead:Rift:jitpack-SNAPSHOT:dev'
+}
+
+minecraft {
+	version = '1.13.2'
+	mappings = 'snapshot_20181130'
+	runDir = 'run'
+	tweakClass = 'org.dimdev.riftloader.launch.RiftLoaderClientTweaker'
+	replace "@VERSION@", project.version
+}
