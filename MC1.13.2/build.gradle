@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle.tweaker-client'
 apply plugin: 'java'
 
 group 'io.github.zekerzhayard'
-version '1.0-RC1'
+version '1.0-RC2'
 archivesBaseName = '[1.13.2]ToggleSprintingMod'
 
 sourceCompatibility = 1.8
